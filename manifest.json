@@ -1,0 +1,10 @@
+{
+ "name": "VocabBot",
+"manifest_version":2,
+"version":"1.5.0.0",
+ "content_scripts": 
+    {
+         "matches": ["https://www.vocabulary.com/lists/2958704/practice"],
+         "js": ["new 1.js"]
+     }
+}
