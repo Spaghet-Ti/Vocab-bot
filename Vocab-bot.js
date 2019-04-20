@@ -35,6 +35,9 @@ function start() {
         i,
         q
     ];
+    texts = texts.map(function(text) {
+        return text.toLowerCase();
+    });
 
     answer = getAnswer();
     select(answer);
@@ -43,22 +46,16 @@ function start() {
 
 function getAnswer() {
     for (let j = 0; j < words.length; j++) {
-        var x;
-
-        if (
-            texts.some(function(c, $x) {
-                x = $x;
-                return c.includes(words[j]);
-            })
-        ) {
+        var match = texts.findIndex(text => text.includes(words[j]));
+        if (match >= 0) {
             targetWord = words[j];
             break;
         }
     }
 
     if (targetWord) {
-        if (x <= 3) {
-            return x + 1;
+        if (match <= 3) {
+            return match + 1;
         }
     }
 }
